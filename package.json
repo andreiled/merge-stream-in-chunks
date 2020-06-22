@@ -1,0 +1,22 @@
+{
+  "name": "merge-stream-in-chunks",
+  "version": "0.1.0",
+  "description": "Merge several output streams minimizing data shuffling between the streams producing output in parallel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "stream",
+    "merge"
+  ],
+  "author": "Andrey Shevtsov <andreiled@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andreiled/merge-stream-in-chunks.git"
+  },
+  "devDependencies": {
+    "mocha": "^8.0.1"
+  }
+}
