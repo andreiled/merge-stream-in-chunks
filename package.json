@@ -4,7 +4,7 @@
   "description": "Merge several output streams minimizing data shuffling between the streams producing output in parallel",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "stream",
@@ -17,6 +17,8 @@
     "url": "https://github.com/andreiled/merge-stream-in-chunks.git"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "mocha": "^8.0.1"
   }
 }
