@@ -75,7 +75,7 @@ Quisque elit erat, tristique hendrerit mauris eget, laoreet efficitur massa. Nul
         });
     });
 
-    describe('without prefix', function () {
+    describe('with prefix', function () {
         it('should create chunks with uninterrupted lines sequences', function () {
             var chunker = new ChunkStream({header: 'Foo header', prefix: '> '});
 

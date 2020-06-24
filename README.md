@@ -1,4 +1,6 @@
 # merge-stream-in-chunks
+![build & test](https://github.com/andreiled/merge-stream-in-chunks/workflows/build%20&%20test/badge.svg)
+
 Merge several input streams into one while also minimizing mixing data between the streams producing output in parallel.
 
 ## Description
