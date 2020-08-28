@@ -26,16 +26,22 @@ class MergedStream extends PassThrough {
         let chunker = new ChunkStream({header: header, prefix: this._prefix});
         this._sources.push(chunker);
 
-        source
-                .on('error', chunker.emit.bind(chunker, 'error'))
-                .pipe(chunker)
+        chunker
                 .on('error', this._output.emit.bind(this._output, 'error'))
+                .on('pipe', (src) => {
+                    // When someone pipes data via this intake, ensure that errors are forwarded as well
+                    src.on('error', chunker.emit.bind(chunker, 'error'));
+                })
                 // TODO: flush & close chunker before _remove call
-                .once('unpipe', (other) => other === source && chunker.end())
                 .once('end', this._remove.bind(this, chunker))
                 .pipe(this._output, {end: false});
 
-        return this;
+        if (source) {
+            chunker.once('unpipe', (other) => other === source && chunker.end());
+            source.pipe(chunker);
+        }
+
+        return chunker;
     }
 
     isEmpty() {
